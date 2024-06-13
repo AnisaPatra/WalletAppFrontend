@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import { CSVLink } from 'react-csv';
 import { useLocation } from 'react-router-dom';
@@ -16,20 +16,20 @@ const Transactions = () => {
     const [sortBy, setSortBy] = useState('createdAt'); // Default sort by createdAt
     const [sortOrder, setSortOrder] = useState('desc'); // Default sort order descending
 
-    useEffect(() => {
-        fetchTransactions();
-    }, [BACKEND_URL,walletId,skip, limit, sortBy, sortOrder]);
-
-    const fetchTransactions = async () => {
+    const fetchTransactions = useCallback(async () => {
         try {
-            const response = await axios.get(BACKEND_URL+`/transaction?walletId=${walletId}&skip=${skip}&limit=${limit}&sortBy=${sortBy}&sortOrder=${sortOrder}`);
+            const response = await axios.get(`${BACKEND_URL}/transaction?walletId=${walletId}&skip=${skip}&limit=${limit}&sortBy=${sortBy}&sortOrder=${sortOrder}`);
             setTransactions(response.data.transactions);
             setTotalTransactions(response.data.total); // Assuming your API returns total count of transactions
             setMessage('Transactions fetched successfully');
         } catch (error) {
             setMessage('Error fetching transactions');
         }
-    };
+    }, [BACKEND_URL, walletId, skip, limit, sortBy, sortOrder]);
+
+    useEffect(() => {
+        fetchTransactions();
+    }, [fetchTransactions]);
 
     const handleFetch = (e) => {
         e.preventDefault();
