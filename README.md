@@ -24,21 +24,7 @@ Perform credit and debit transactions
 View transaction history for a wallet
 
 ### Project Structure
-.
-├── public
-│   ├── index.html
-│   └── ...
-├── src
-│   ├── components
-│   │   ├── SetupWallet.js
-│   │   ├── Transactions.js
-│   │   └── ...
-│   ├── App.js
-│   ├── index.js
-│   └── ...
-├── package.json
-├── README.md
-└── ...
+
 - public/: Contains the public assets and the main HTML file.
 - src/: Contains the React components and the main entry points for the application.
 - components/: Contains the individual React components for different parts of the application.
