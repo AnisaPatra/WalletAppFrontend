@@ -18,7 +18,7 @@ const Transactions = () => {
 
     useEffect(() => {
         fetchTransactions();
-    }, [skip, limit, sortBy, sortOrder]);
+    }, [BACKEND_URL,walletId,skip, limit, sortBy, sortOrder]);
 
     const fetchTransactions = async () => {
         try {
@@ -56,10 +56,6 @@ const Transactions = () => {
         { value: 'createdAt', label: 'Date' },
         { value: 'type', label: 'Type' },
     ];
-
-    const handleSortByChange = (e) => {
-        setSortBy(e.target.value);
-    };
 
     const toggleSortOrder = () => {
         setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');

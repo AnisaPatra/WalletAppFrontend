@@ -42,7 +42,7 @@ const Wallet = () => {
     const handleTransaction = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(`${BACKEND_URL}/transaction/${wallet[0].walletId}`, {
+            await axios.post(`${BACKEND_URL}/transaction/${wallet[0].walletId}`, {
                 amount: transactionAmount,
                 description: transactionDescription,
                 type: transactionType
