@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './Wallets.css'; // Import CSS file for styles
 
 const Wallet = () => {
-    const BACKEND_URL = "http://localhost:5000";
+    const BACKEND_URL = "https://walletservicebackend-production.up.railway.app";
     const [wallet, setWallet] = useState([]);
     const [name, setName] = useState('');
     const [balance, setBalance] = useState('');

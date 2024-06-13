@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom';
 import './Transactions.css'; // Import CSS file for styles
 
 const Transactions = () => {
+    const BACKEND_URL = "https://walletservicebackend-production.up.railway.app";
     const location = useLocation();
     const walletId = location.state.walletId;
     const [transactions, setTransactions] = useState([]);
@@ -21,7 +22,7 @@ const Transactions = () => {
 
     const fetchTransactions = async () => {
         try {
-            const response = await axios.get(`/transaction?walletId=${walletId}&skip=${skip}&limit=${limit}&sortBy=${sortBy}&sortOrder=${sortOrder}`);
+            const response = await axios.get(BACKEND_URL+`/transaction?walletId=${walletId}&skip=${skip}&limit=${limit}&sortBy=${sortBy}&sortOrder=${sortOrder}`);
             setTransactions(response.data.transactions);
             setTotalTransactions(response.data.total); // Assuming your API returns total count of transactions
             setMessage('Transactions fetched successfully');
