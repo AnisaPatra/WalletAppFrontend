@@ -116,16 +116,18 @@ const Transactions = () => {
                     ))}
                 </tbody>
             </table>
-            <br /><br />
-            <CSVLink data={transactions} headers={headers} filename={`transactions_${walletId}.csv`}>
-                Export to CSV
-            </CSVLink>
+            <br />
 
             {/* Pagination */}
             <div className="pagination-section"> {/* Added class for styling */}
                 <button className="btn" onClick={() => setSkip(skip - limit)} disabled={skip === 0}>Previous</button>
                 <button className="btn" onClick={() => setSkip(skip + limit)} disabled={skip + limit >= totalTransactions}>Next</button>
             </div>
+            <br/>
+
+            <CSVLink data={transactions} headers={headers} filename={`transactions_${walletId}.csv`}>
+                Export to CSV
+            </CSVLink>
         </div>
     );
 };
