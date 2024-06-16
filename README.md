@@ -2,6 +2,9 @@
 
 This project provides a frontend application for managing wallets and transactions. It allows users to create wallet, perform transactions (credit and debit), and view wallet details and transaction history.
 
+You can got through the live url:
+https://main--zingy-centaur-59ce05.netlify.app/
+
 ## Table of Contents
 
 - [Prerequisites](#prerequisites)
