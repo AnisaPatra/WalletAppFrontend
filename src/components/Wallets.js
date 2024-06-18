@@ -59,9 +59,9 @@ const Wallet = () => {
     }, []);
 
     return (
-        <div className="wallet-container-details">
+        <div>
             {wallet.length > 0 ? (
-                <div>
+                <div className="wallet-container-details">
                     <h3>Wallet Details</h3>
                     <p>Wallet Name : {wallet[0].name}</p>
                     <p>Wallet Balance : {wallet[0].balance}</p>
@@ -90,7 +90,7 @@ const Wallet = () => {
                     <Link className="view-transactions-link" to={{ pathname: "/transactions", state: { walletId: wallet[0].walletId } }}>View Transactions</Link>
                 </div>
             ) : (
-                <div>
+                <div  className="wallet-container">
                     <h3>Setup Wallet</h3>
                     <form className="setup-form" onSubmit={handleSubmit}> 
                         <div className="form-group">
