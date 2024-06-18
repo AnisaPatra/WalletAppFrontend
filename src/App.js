@@ -7,7 +7,7 @@ const App = () => {
   return (
     <Router>
       <div>
-        <h1>Wallet App</h1>
+        <h1 style={{textAlign:"center", margin:"40px"}}>Wallet App</h1>
         <Switch>
           <Route path="/" exact component={SetupWallet} />
           <Route path="/transactions" component={Transactions} />

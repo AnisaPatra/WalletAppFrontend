@@ -59,16 +59,16 @@ const Wallet = () => {
     }, []);
 
     return (
-        <div className="wallet-container"> {/* Added container class for overall styling */}
+        <div className="wallet-container-details">
             {wallet.length > 0 ? (
                 <div>
-                    <h2>Wallet Details</h2>
+                    <h3>Wallet Details</h3>
                     <p>Wallet Name : {wallet[0].name}</p>
                     <p>Wallet Balance : {wallet[0].balance}</p>
                     <p>Last Modified Date: {formatDate(wallet[0].updatedAt)}</p>
 
-                    <h2>Perform Transaction</h2>
-                    <form className="transaction-form" onSubmit={handleTransaction}> {/* Added form class for styling */}
+                    <h3>Perform Transaction</h3>
+                    <form className="transaction-form" onSubmit={handleTransaction}> 
                         <div className="form-group">
                             <label>Amount:</label>
                             <input className="form-control" type="number" value={transactionAmount} onChange={(e) => setTransactionAmount(e.target.value)} />
@@ -91,8 +91,8 @@ const Wallet = () => {
                 </div>
             ) : (
                 <div>
-                    <h2>Setup Wallet</h2>
-                    <form className="setup-form" onSubmit={handleSubmit}> {/* Added form class for styling */}
+                    <h3>Setup Wallet</h3>
+                    <form className="setup-form" onSubmit={handleSubmit}> 
                         <div className="form-group">
                             <label>Name:</label>
                             <input className="form-control" type="text" value={name} onChange={(e) => setName(e.target.value)} />
