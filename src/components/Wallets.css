@@ -7,8 +7,8 @@
   margin: 20px;
 }
 
-.transaction-form{
-  margin-bottom: 20px;
+.transaction-form {
+  gap: 20px 10px; 
 }
 
 .setup-form {
@@ -17,20 +17,23 @@
   gap: 20px 10px; /* Space between grid items */
   max-width: 300px;
   margin: auto;
-  padding: 60px;
+  padding: 5%;
   border: 1px solid #ccc;
   border-radius: 10px;
 }
 
 .form-group {
   display: contents; 
+  
 }
 
 .form-group label {
   margin-bottom: 5px;
+  grid-column: 1;
 }
 
 .form-group input {
+  grid-column: 2;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -50,6 +53,15 @@
   background-color: #0056b3;
 }
 
+.deleteBtn {
+  grid-column: span 2; /* Button spans both columns */
+  padding: 10px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
 .view-transactions-link {
   display: block;

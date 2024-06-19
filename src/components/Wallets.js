@@ -54,6 +54,16 @@ const Wallet = () => {
         }
     };
 
+    const deleteWallet = async(e) => {
+        e.preventDefault();
+        try {
+            await axios.delete(BACKEND_URL + `/wallet/${wallet[0].walletId}`);
+            getWallet();
+        } catch (error) {
+            setMessage('Error deleting wallet');
+        }
+    }
+
     useEffect(() => {
         getWallet();
     }, []);
@@ -66,7 +76,9 @@ const Wallet = () => {
                     <p>Wallet Name : {wallet[0].name}</p>
                     <p>Wallet Balance : {wallet[0].balance}</p>
                     <p>Last Modified Date: {formatDate(wallet[0].updatedAt)}</p>
-
+                    <br/>
+                    <button className="deleteBtn" onClick={deleteWallet}> Delete Wallet</button>
+                    {message && <p>{message}</p>}
                     <h3>Perform Transaction</h3>
                     <form className="transaction-form" onSubmit={handleTransaction}> 
                         <div className="form-group">
